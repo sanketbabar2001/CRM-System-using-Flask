@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+    <h5 class="card-header">
+    <strong>
+        {{ customer_record.first_name }} {{ customer_record.last_name }}
+    </strong>
+    </h5>
+    <div class="card-body">
+  
+    <p class="card-text">
+        <strong>Customer ID : </strong>{{customer_record.id }}
+    </p>
+
+    
+    <p class="card-text">
+        <strong>Email : </strong>{{ customer_record.email }}
+    </p>
+
+    <p class="card-text"></p>
+        <strong>Phone : </strong>{{ customer_record.phone }}
+    </p>
+
+    <p class="card-text">
+        <strong>Address : </strong>{{ customer_record.address }}
+    </p>
+
+    <p class="card-text">
+        <strong>City : </strong>{{ customer_record.city }}
+    </p>
+    
+    <p class="card-text">
+        <strong>Pincode : </strong>{{ customer_record.pincode }}
+    </p>
+
+    <p class="card-text">
+        <strong>State : </strong>{{ customer_record.state }}
+    </p>
+
+    <p class="card-text">
+        <strong>Country : </strong>{{ customer_record.country }}
+    </p>
+
+    <p class="card-text">
+        <strong>Created At : </strong>{{ customer_record.created_at }}
+    </p>
+
+    </div>
+</div>
+
+<br/>
+<a href="{{ url_for('views.home') }}" class="btn btn-secondary">Back</a>
+<form method="POST" action="{{ url_for('views.delete_record', pk=customer_record.id) }}">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<a href="{{ url_for('views.update_record', pk=customer_record.id) }}" class="btn btn-secondary">Update</a>
+
+{% endblock %}

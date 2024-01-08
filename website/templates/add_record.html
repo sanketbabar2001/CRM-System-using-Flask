@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Add Record</h1>
+    <br/>
+    
+    <form method="POST" action="{{ url_for('views.add_record') }}">
+        {{ form.hidden_tag() }}
+        
+        {{ form.first_name.label }} {{ form.first_name(class="form-control") }}<br>
+        {{ form.last_name.label }} {{ form.last_name(class="form-control") }}<br>
+        {{ form.email.label }} {{ form.email(class="form-control") }}<br>
+        {{ form.phone.label }} {{ form.phone(class="form-control") }}<br>
+        {{ form.address.label }} {{ form.address(class="form-control") }}<br>
+        {{ form.city.label }} {{ form.city(class="form-control") }}<br>
+        {{ form.state.label }} {{ form.state(class="form-control") }}<br>
+        {{ form.country.label }} {{ form.country(class="form-control") }}<br>
+        {{ form.pincode.label }} {{ form.pincode(class="form-control") }}<br>
+        
+        <br/>
+        <button type="submit" class="btn btn-secondary">Add Record</button>
+        <a href="{{ url_for('views.home') }}" class="btn btn-secondary">Back</a>
+    </form>
+    
+</div>
+
+{% endblock %}
